@@ -1,0 +1,6 @@
+<h1>Category List</h1>
+<ul>
+  <% @products_images.each do |category| %>
+    <li><%= category.name %> - <%= category.image %> - <%= link_to 'Products List', category_products_path(category.category_id) %></li>
+  <% end %>
+</ul>
