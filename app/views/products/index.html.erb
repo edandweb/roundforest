@@ -1,6 +1,17 @@
-<h1>Category: <%= @category.name %></h1>
-<ul>
-  <% @products.each do |product| %>
-    <li><%= product.score %> - <%= product.name %> - <%= product.image %> - <%= product.price %></li>
-  <% end %>
-</ul>
+<div class="container">
+  <h1><%= @category.name %></h1>
+  <div class="row no-gutters">
+    <% @products.each_with_index do |product, index| %>
+      <div class="col-12 col-md-12 col-lg-6">
+        <div class="card float-left" style="width: 18rem;">
+          <img class="d-none d-md-block d-lg-block card-img-top" src="<%= product.image %>" alt="" style="max-width: 286px; max-height:180px;">
+          <div class="card-body">
+            <h5 class="card-title"><%= index+1 %>. <%= product.name %></h5>
+            <p><%= product.price %>$</p>
+            <%= link_to 'Buy', product.url, class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
